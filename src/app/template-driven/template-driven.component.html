@@ -1,0 +1,53 @@
+<form class="row g-3" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="col-md-12">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" #nome="ngModel"
+        [(ngModel)]="usuario.nome" required>
+        <div *ngIf="nome.invalid && nome.touched" class="alert alert-danger" role="alert">
+          <small>Nome é obrigatório.</small>
+        </div>
+    </div>
+    <div class="col-md-12">
+      <label for="email" class="form-label">E-mail</label>
+      <input type="email" class="form-control" id="email" name="email" #email="ngModel"
+        [(ngModel)]="usuario.email" required email>
+        <div *ngIf="email.invalid && email.touched" class="alert alert-danger" role="alert">
+          Email é obrigatório e de ser em um formato válido.
+        </div>
+    </div>
+    <div class="col-12">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" name="cep" #cep="ngModel"
+        [(ngModel)]="usuario.endereco.cep" required>
+        <div *ngIf="cep.invalid && cep.touched" class="alert alert-danger" role="alert">
+          CEP é obrigatório.
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="rua" class="form-label">Rua</label>
+        <input type="text" class="form-control" id="rua" name="rua" #rua="ngModel"
+        [(ngModel)]="usuario.endereco.rua" required>
+        <div *ngIf="rua.invalid && rua.touched" class="alert alert-danger" role="alert">
+          Rua é obrigatório.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" name="cidade" #cidade="ngModel"
+        [(ngModel)]="usuario.endereco.cidade" required>
+        <div *ngIf="cidade.invalid && cidade.touched" class="alert alert-danger" role="alert">
+          Cidade é obrigatório.
+        </div>
+      </div>
+      <div class="col-md-2">
+        <label for="estado" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="estado" name="estado"
+        [(ngModel)]="usuario.endereco.estado" required #estado="ngModel">
+        <div *ngIf="estado.invalid && estado.touched" class="alert alert-danger" role="alert">
+          Estado é obrigatório.
+        </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
