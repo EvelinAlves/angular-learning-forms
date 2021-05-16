@@ -10,12 +10,11 @@ export class TemplateDrivenComponent implements OnInit {
   usuario: any = {
     nome: '',
     email: '',
-    telefone: '',
     endereco: {
       cep: '',
-      rua: '',
       numero: '',
       complemento: '',
+      rua: '',
       cidade: '',
       estado: ''
     }
